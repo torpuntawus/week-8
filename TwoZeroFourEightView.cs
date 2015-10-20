@@ -14,7 +14,7 @@ namespace twozerofoureight
     {
         Model model;
         Controller controller;
-       
+        ShowscoreView form2 = new ShowscoreView();
         public TwoZeroFourEightView()
         {
             InitializeComponent();
@@ -24,7 +24,6 @@ namespace twozerofoureight
             controller.AddModel(model);
             controller.ActionPerformed(TwoZeroFourEightController.LEFT);
         }
-
         public void Notify(Model m)
         {
             UpdateBoard(((TwoZeroFourEightModel) m).GetBoard());
@@ -89,8 +88,11 @@ namespace twozerofoureight
                 }
             }
             lblScore.Text = Convert.ToString(score);
+            form2.lblScore2.Text = Convert.ToString(score);      
+            form2.Show();
+            
         }
-
+           
         private void btnLeft_Click(object sender, EventArgs e)
         {
             controller.ActionPerformed(TwoZeroFourEightController.LEFT);
