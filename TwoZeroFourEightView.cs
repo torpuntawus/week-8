@@ -20,6 +20,7 @@ namespace twozerofoureight
             InitializeComponent();
             model = new TwoZeroFourEightModel();
             model.AttachObserver(this);
+            model.AttachObserver(form2);
             controller = new TwoZeroFourEightController();
             controller.AddModel(model);
             controller.ActionPerformed(TwoZeroFourEightController.LEFT);
@@ -28,6 +29,7 @@ namespace twozerofoureight
         {
             UpdateBoard(((TwoZeroFourEightModel) m).GetBoard());
             UpdateScore(((TwoZeroFourEightModel)m).GetScore());
+            form2.Show();
         }
 
         private void UpdateTile(Label l, int i)
@@ -79,10 +81,7 @@ namespace twozerofoureight
         private void UpdateScore(int score)
         {         
             lblScore.Text = Convert.ToString(score);
-            form2.lblScore2.Text = Convert.ToString(score);
-            form2.Show();
         }
-
         private void btnLeft_Click(object sender, EventArgs e)
         {
             controller.ActionPerformed(TwoZeroFourEightController.LEFT);
